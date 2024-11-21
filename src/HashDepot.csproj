@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <AssemblyName>HashDepot</AssemblyName>
+        <Version>3.1.0</Version>
+        <Description>Tested and performant implementations of xxHash, SipHash (SipHash-2-4), MurmurHash (MurmurHash3), FNV (FNV-1, FNV-1a)</Description>
+        <Authors>Sedat Kapanoglu</Authors>
+        <OutputType>Library</OutputType>
+        <LangVersion>latest</LangVersion>
+        <Nullable>enable</Nullable>
+        <PackageId>HashDepot</PackageId>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageTags>siphash murmurhash xxhash fnv fnv1a</PackageTags>
+        <CodeAnalysisRuleSet></CodeAnalysisRuleSet>
+        <DocumentationFile>HashDepot.xml</DocumentationFile>
+        <RepositoryUrl>https://github.com/ssg/HashDepot</RepositoryUrl>
+        <PackageReleaseNotes>
+        <![CDATA[
+# Breaking changes
+- Removed all unsafe code.
+- Removed API endpoints receiving "byte[]"
+        ]]>
+        </PackageReleaseNotes>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)'=='Release'">
+        <Optimize>true</Optimize>
+    </PropertyGroup>
+    <ItemGroup>
+        <None Remove="HashDepot.ncrunchproject" />
+        <None Remove="HashDepot.v2.ncrunchproject" />
+        <None Remove="HashDepot.xml" />
+        <None Remove="stylecop.json" />
+        <None Include="..\LICENSE" Pack="true" PackagePath="LICENSE" />
+    </ItemGroup>
+    <ItemGroup>
+        <AdditionalFiles Include="stylecop.json" />
+    </ItemGroup>
+</Project>
